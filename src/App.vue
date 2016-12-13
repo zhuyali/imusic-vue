@@ -24,7 +24,7 @@ export default {
       paused: false,
       stopped: true,
       pausePressed: false,
-      musicList: [{name: 'aaa', path: 'sss'}]
+      musicList: []
     }
   },
   components: {
