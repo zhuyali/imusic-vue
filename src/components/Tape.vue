@@ -1,7 +1,7 @@
 <template>
   <div class="imusic-tape-wrapper">
     <div class="imusic-tape">
-      <div class="imusic-tape-back" v-if="paused === true">
+      <div class="imusic-tape-back" v-if="paused || stopped">
         <div class="imusic-tape-wheel imusic-tape-wheel-left"><div></div></div>
         <div class="imusic-tape-wheel imusic-tape-wheel-right"><div></div></div>
       </div>
@@ -19,7 +19,7 @@
 <script>
 export default {
   name: 'tape',
-  props: ['paused']
+  props: ['paused', 'stopped']
 }
 </script>
 

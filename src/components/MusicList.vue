@@ -1,7 +1,7 @@
 <template>
   <div id="music-list">
     <ol>
-      <li v-for="value in musicList" class="item" :data-path="value.path">{{ value.name }}</li>
+      <li v-for="value in musicList" class="item" :data-path="value.path" @click="playSpecificMusic">{{ value.name }}</li>
     </ol>
   </div>
 </template>
@@ -9,7 +9,30 @@
 <script>
   export default {
     name: 'musicList',
-    props: ['musicList']
+    props: ['musicList'],
+    methods: {
+      changeMusic: function (index) {
+        this.$emit('changeMusic', index)
+      },
+      playSpecificMusic: function (event) {
+        for (var i in this.musicList) {
+          if (this.musicList[parseInt(i)].path ===
+            event.target.getAttribute('data-path')) {
+            let index = parseInt(i)
+            this.$emit('changeMusic', index)
+            this.$emit('pressPause', false)
+            break
+          }
+        }
+        this.changeState(false, false)
+      },
+      pressPause: function (pressed) {
+        this.$emit('pressPause', pressed)
+      },
+      changeState: function (paused, stopped) {
+        this.$emit('changeState', paused, stopped)
+      }
+    }
   }
 </script>
 

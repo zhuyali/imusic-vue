@@ -1,18 +1,18 @@
 <template>
   <ul class="imusic-controls">
-    <li id="play" class="imusic-control-play control" v-bind:class="{ 'imusic-control-pressed': playPressed }" v-on:click="handleClick">
+    <li id="play" class="imusic-control-play control" v-bind:class="{ 'imusic-control-pressed': playPressed }" @click="handleClick">
     Play<span>▶</span>
     </li>
-    <li id="pause" class="imusic-control-pause control" v-bind:class="{ 'imusic-control-pressed': pausePressed }" v-on:click="handleClick">
+    <li id="pause" class="imusic-control-pause control" v-bind:class="{ 'imusic-control-pressed': pausePressed }" @click="handleClick">
     Pause<span>❚❚</span>
     </li>
-    <li id="pre" class="imusic-control-rewind control" v-bind:class="{ 'imusic-control-pressed': prePressed }" v-on:click="handleClick">
+    <li id="pre" class="imusic-control-rewind control" v-bind:class="{ 'imusic-control-pressed': prePressed }" @click="handleClick">
     Pre<span>◁</span>
     </li>
     <li id="next" class="imusic-control-fforward control" v-bind:class="{ 'imusic-control-pressed': nextPressed }" v-on:click="handleClick">
     Next<span>▷</span>
     </li>
-    <li id="stop" class="imusic-control-stop control" v-bind:class="{ 'imusic-control-pressed': stopPressed }" v-on:click="handleClick">
+    <li id="stop" class="imusic-control-stop control" v-bind:class="{ 'imusic-control-pressed': stopPressed }" @click="handleClick">
     Stop<span>◼</span>
     </li>
     <audio id="soundAudio" ref="audio" src='/assets/sounds/click.mp3'><span>HTML5 audio not supported</span></audio>
@@ -25,13 +25,22 @@
     data: function () {
       return {
         playPressed: false,
-        pausePressed: false,
         prePressed: false,
         nextPressed: false,
         stopPressed: false
       }
     },
+    props: ['paused', 'index', 'pausePressed', 'musicLength'],
     methods: {
+      changeState: function (paused, stopped) {
+        this.$emit('changeState', paused, stopped)
+      },
+      changeMusic: function (index) {
+        this.$emit('changeMusic', index)
+      },
+      pressPause: function (pressed) {
+        this.$emit('pressPause', pressed)
+      },
       handleClick: function (event) {
         var audio = this.$refs.audio
         audio.play()
@@ -43,27 +52,50 @@
             setTimeout(function () {
               that.playPressed = false
             }, 100)
+            that.pressPause(false)
+            that.changeState(false, false)
             break
           case 'pause':
-            that.pausePressed = true
-            setTimeout(function () {
-              that.pausePressed = false
-            }, 100)
+            if (that.paused) {
+              that.pressPause(false)
+              that.changeState(false, false)
+            } else {
+              that.pressPause(true)
+              that.changeState(true, false)
+            }
             break
           case 'pre':
+            if (that.index === 0) {
+              that.index = that.musicLength - 1
+            } else {
+              that.index = that.index - 1
+            }
+            that.pressPause(false)
             that.prePressed = true
             setTimeout(function () {
               that.prePressed = false
             }, 100)
+            that.changeState(false, false)
+            that.changeMusic(that.index)
             break
           case 'next':
+            if (that.index === (that.musicLength - 1)) {
+              that.index = 0
+            } else {
+              that.index = that.index + 1
+            }
+            that.pressPause(false)
             that.nextPressed = true
             setTimeout(function () {
               that.nextPressed = false
             }, 100)
+            that.changeState(false, false)
+            that.changeMusic(that.index)
             break
           case 'stop':
+            that.pressPause(false)
             that.stopPressed = true
+            that.changeState(true, true)
             setTimeout(function () {
               that.stopPressed = false
             }, 100)
