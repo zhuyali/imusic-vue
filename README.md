@@ -1,6 +1,10 @@
 # imusic-vue
 
-> A Vue.js project
+Music player by vue
+
+## Screenshot
+
+![](./screenshot.jpg)
 
 ## Build Setup
 
@@ -13,15 +17,23 @@ npm run dev
 
 # build for production with minification
 npm run build
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## Installation
+
+```shell
+$ npm install imusic-vue -g
+```
+
+## Quick Start
+
+#### 在有音乐的本地目录下，输入命令行:
+
+```shell
+$ imusic-vue
+```
+
+## License
+
+The MIT License
+

@@ -1,0 +1,11 @@
+node_modules
+.travis.yml
+.drone.yml
+.jshintrc
+.jshintignore
+*.sw*
+*.un~
+.DS_Store
+npm-debug.log
+test/
+.idea/*
