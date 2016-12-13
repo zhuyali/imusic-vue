@@ -1,5 +1,5 @@
 <template>
-  <div id="music-list" style={{overflow: "auto"}}>
+  <div id="music-list">
     <ol>
       <li v-for="value in musicList" class="item" :data-path="value.path">{{ value.name }}</li>
     </ol>
@@ -55,6 +55,7 @@
   }
 
   #music-list {
+    overflow: auto;
     position: fixed;
     top: 15%;
     right: 9%;

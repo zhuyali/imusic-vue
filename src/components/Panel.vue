@@ -15,7 +15,7 @@
     <li id="stop" class="imusic-control-stop control" v-bind:class="{ 'imusic-control-pressed': stopPressed }" v-on:click="handleClick">
     Stop<span>◼</span>
     </li>
-    <audio id="soundAudio" ref="audio" src='../assets/click.mp3'><span>HTML5 audio not supported</span></audio>
+    <audio id="soundAudio" ref="audio" src='/assets/sounds/click.mp3'><span>HTML5 audio not supported</span></audio>
   </ul>
 </template>
 
@@ -114,7 +114,7 @@
     padding: 10px;
     margin: 0;
     cursor: pointer;
-    background: #ddd url(../assets/metal.jpg) no-repeat center top;
+    background: #ddd url(../assets/images/metal.jpg) no-repeat center top;
     box-shadow:
     inset 0 0 0 1px rgba(0,0,0, 0.2),
     inset 0 0 1px 2px rgba(255,255,255,0.9),
@@ -172,7 +172,7 @@
   ul.imusic-controls li.imusic-control-active {
     height: 30px;
     margin-top: 2px;
-    background-image: url(../assets/metal_dark.jpg);
+    background-image: url(../assets/images/metal_dark.jpg);
     box-shadow:
     inset 0 0 0 1px rgba(0,0,0, 0.18),
     inset 0 0 1px 2px rgba(255,255,255,0.5),
@@ -185,7 +185,7 @@
   ul.imusic-controls li.imusic-control-pressed,
   ul.imusic-controls li.imusic-control-active.imusic-control-pressed {
     height: 30px;
-    background-image: url(../assets/metal_dark.jpg);
+    background-image: url(../assets/images/metal_dark.jpg);
     margin-top: 4px;
     box-shadow:
     inset 0 0 0 1px rgba(0,0,0, 0.2),

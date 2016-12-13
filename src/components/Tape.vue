@@ -46,7 +46,7 @@ export default {
     width: 100%;
     height: 100%;
     position: relative;
-    background: transparent url(../assets/cs_back.png) no-repeat center center;
+    background: transparent url(../assets/images/cs_back.png) no-repeat center center;
   }
   .imusic-tape-wheel {
     width: 125px;
@@ -66,13 +66,13 @@ export default {
   .imusic-tape-wheel div {
     width: 100%;
     height: 100%;
-    background: transparent url(../assets/cs_wheel.png) no-repeat center center;
+    background: transparent url(../assets/images/cs_wheel.png) no-repeat center center;
   }
   .imusic-tape-front {
     width: 100%;
     height: 100%;
     position: absolute;
-    background: transparent url(../assets/cs_front.png) no-repeat center center;
+    background: transparent url(../assets/images/cs_front.png) no-repeat center center;
     top: 0px;
     left: 0px;
   }
