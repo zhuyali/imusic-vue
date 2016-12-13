@@ -65,7 +65,7 @@
     position: absolute;
     left: -1.3em;
     top: 50%;
-    margin-top: -1.3em;
+    margin-top: -1.3emsrc/assets/css/index.css;
     background: #87ceeb;
     height: 2em;
     width: 2em;
