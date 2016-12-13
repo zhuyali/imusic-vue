@@ -83,6 +83,8 @@ export default {
         if (result.success) {
           that.musicList = result.data
           that.musicLength = result.data.length
+          audio.setAttribute('src', that.musicList[0].path)
+          document.title = that.musicList[0].name + ' - imusic'
         }
       })
     } else {
@@ -93,11 +95,11 @@ export default {
         name: url ? url.substr(url.lastIndexOf('/') + 1) : '美好事物-房东的猫.mp3',
         path: url || defaultUrl
       })
-      this.musicList = musicListTemp
-      this.musicLength = 1
+      that.musicList = musicListTemp
+      that.musicLength = 1
+      audio.setAttribute('src', that.musicList[0].path)
+      document.title = that.musicList[0].name + ' - imusic'
     }
-    audio.setAttribute('src', that.musicList[0].path)
-    document.title = that.musicList[0].name + ' - imusic'
     audio.addEventListener('ended', function () {
       that.index = that.index === that.musicLength - 1 ? 0 : that.index + 1
       audio.setAttribute('src', that.musicList[that.index].path)
