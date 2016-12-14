@@ -15,7 +15,7 @@
     <li id="stop" class="imusic-control-stop control" v-bind:class="{ 'imusic-control-pressed': stopPressed }" @click="handleClick">
     Stop<span>◼</span>
     </li>
-    <audio id="soundAudio" ref="audio" src='src/assets/sounds/click.mp3'><span>HTML5 audio not supported</span></audio>
+    <audio id="soundAudio" ref="audio" src='/Users/julia/prjs/imusic-vue/src/assets/sounds/click.mp3'><span>HTML5 audio not supported</span></audio>
   </ul>
 </template>
 
