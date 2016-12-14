@@ -1,6 +1,6 @@
 {
   "name": "imusic-vue",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A Vue.js project",
   "bin": "./bin/imusic",
   "author": "zhuyali <495162889@qq.com>",
